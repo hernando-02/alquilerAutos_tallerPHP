@@ -11,6 +11,7 @@ $id = $_GET['id'];
 if($_SERVER['REQUEST_METHOD']== 'GET'){
     try {
         //code...
+        // http://localhost/webServAlquilerAutos/alquiler_get.php?id=4
         $statement = $mbd->prepare("SELECT * FROM alquileres WHERE id = ?");
         $statement->bindParam(1, $_GET['id']);
         $statement->execute();

@@ -10,6 +10,7 @@ $body = json_decode(file_get_contents("php://input"), true);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
+        // http://localhost/webServAlquilerAutos/car_create.php
         $statement = $mbd->prepare("INSERT INTO carros(marca, modelo, placa) VALUES (:marca, :modelo, :placa)");
         // esto es para crar por form-data
         // $statement->bindParam(':marca', $_POST['marca']);
@@ -43,5 +44,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]);
     }
 }
+
+// {
+//     "marca": "Maserati",
+//     "modelo": "2023",
+//     "placa": "LAM-10S"
+// }
 
 ?>

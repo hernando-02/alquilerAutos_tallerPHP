@@ -10,6 +10,7 @@ $body = json_decode(file_get_contents("php://input"), true);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
+        // http://localhost/webServAlquilerAutos/alquiler_update.php
         $statement = $mbd->prepare("UPDATE alquileres 
         SET id = :id_alquiler, id_auto = :id_auto, nombre_cliente = :nombre_cliente, email_cliente = :email_cliente, nombre_prestador = :nombre_prestador, hora_inicio = :hora_inicio, fecha_devolucion = :fecha_devolucion, km_recorridos = :km_recorridos ,precio = :precio
         WHERE id = :id_alquiler");
@@ -64,5 +65,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]);
     }
 }
+
+// {
+//     "id_alquiler": "20",
+//     "id_auto": "1",
+//     "nombre_cliente": "Carmen Josefa",
+//     "email_cliente": "Carmen@correo.com",
+//     "nombre_prestador": "Fernando Jose hoyos",
+//     "hora_inicio": "2022-09-21 12:00:59",
+//     "fecha_devolucion": "2022-09-26",
+//     "km_recorridos": "96",
+//     "precio": "700000"
+// }
 
 ?>

@@ -10,7 +10,7 @@ $body = json_decode(file_get_contents("php://input"), true);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
-
+        // http://localhost/webServAlquilerAutos/car_delete.php
         $stmt = $mbd->prepare("SELECT * FROM carros WHERE id = ?");
         $stmt->bindParam(1, $body['id']);
         $stmt->execute();

@@ -10,6 +10,7 @@ $body = json_decode(file_get_contents("php://input"), true);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
+        // http://localhost/webServAlquilerAutos/car_update.php
         $statement = $mbd->prepare("UPDATE carros SET marca = :marca, modelo = :modelo, placa = :placa WHERE id = :id");
         $statement->bindParam(':id', $body['id']);
         $statement->bindParam(':marca', $body['marca']);
@@ -43,4 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+// {
+//     "id": "1",
+//     "marca": "NISSAN GT-R",
+//     "modelo": "2022",
+//     "placa": "KIJ-563"
+// }
 ?>

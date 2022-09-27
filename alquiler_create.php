@@ -10,6 +10,7 @@ $body = json_decode(file_get_contents("php://input"), true);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
+        // http://localhost/webServAlquilerAutos/alquiler_create.php
         $statement = $mbd->prepare(
             "INSERT INTO alquileres(id_auto, nombre_cliente, email_cliente, nombre_prestador, hora_inicio, fecha_devolucion, km_recorridos,precio)
              VALUES (:id_auto, :nombre_cliente, :email_cliente,:nombre_prestador, :hora_inicio, :fecha_devolucion, :km_recorridos, :precio)");
@@ -59,5 +60,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]);
     }
 }
+
+// {
+//     "id_auto": 4,
+//     "nombre_cliente": "Carmen",
+//     "email_cliente": "Carmen@correo.com",
+//     "nombre_prestador": "Cajlos Acbecto",
+//     "hora_inicio": "2022-09-21 12:00:59",
+//     "fecha_devolucion": "2022-09-26",
+//     "km_recorridos": 96,
+//     "precio": 700000
+// }
 
 ?>

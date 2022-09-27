@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
 
         // selecciono el alquiler a borrar
+        // http://localhost/webServAlquilerAutos/alquiler_delete.php
         $stmt = $mbd->prepare("SELECT * FROM alquileres WHERE id = ?");
         $stmt->bindParam(1, $body['id']);
         $stmt->execute();
